@@ -128,7 +128,7 @@ footer {
       </div>
     </div>
     
-    <div class="subject">english         :<select id="eng"  onchange="result()">
+    <div class="subject">CSS-3        :<select id="eng"  onchange="result()">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -157,8 +157,8 @@ function parser() {
 }
 
 function marks() {
-  document.getElementById("engm").innerHTML=a*3;
-  document.getElementById("sanm").innerHTML=b*3;
+  document.getElementById("engm").innerHTML=a*2;
+  document.getElementById("sanm").innerHTML=b*2;
   document.getElementById("ictm").innerHTML=c*2;
   document.getElementById("cssm").innerHTML=d*2;
   document.getElementById("matm").innerHTML=e*5;
@@ -171,8 +171,8 @@ function marks() {
 function result() {
   parser();
   marks();
-  var r = (a*3)+(b*3)+(c*2)+(d*2)+(e*5)+(f*3)+(g*2)+(h*3)+(i*2);
-  var ans = r/25;
+  var r = (a*2)+(b*2)+(c*2)+(d*2)+(e*5)+(f*3)+(g*2)+(h*3)+(i*2);
+  var ans = r/23;
   document.getElementById("totrm").innerHTML=r;
   document.getElementById("fans").innerHTML=ans;
 }
@@ -202,7 +202,7 @@ function mscs() {
 }
     </script>
     
-    <div class="subject">sanskrit          : <select   onchange="result()" id="san">
+    <div class="subject">Analytical skills          : <select   onchange="result()" id="san">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -213,7 +213,7 @@ function mscs() {
     </select><text id="sanm">30</text>
     </div>
     
-    <div class="subject">ICT            : <select  onchange="result()" id="ict">
+    <div class="subject">Leadership education          : <select  onchange="result()" id="ict">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -224,7 +224,7 @@ function mscs() {
     </select><text id="ictm">20</text>
     </div>
     
-    <div class="subject">CSS            : <select  onchange="result()" id="css">
+    <div class="subject">Entrepreneurship           : <select  onchange="result()" id="css">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
