@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>sem results</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
       body {
   background-color: #20242A;
@@ -31,7 +32,7 @@
   
 }
 
-#eng,#san,#ict,#css,#mat,#phy,#phypr,#com,#compr {
+#math_a,#math_b,#phy_a,#phy_b,#com_a,#com_b,#phyp_a,#phyp_b,#comp_a,#comp_b{
   background-color: #0a8bff;
   color: white;
   border-style: none;
@@ -42,7 +43,7 @@
   box-shadow: 0px 8px 16px 0px #00000049;
 }
 
-#engm,#sanm,#ictm,#cssm,#matm,#phym,#phyprm,#comm,#comprm,#totrm {
+#matha_m,#mathb_m,#phya_m,#phyb_m,#coma_m,#comb_m,#phypa_m,#phypb_m,#compa_m,#compb_m {
   float: right;
   margin: 0px 25px 0px 0px;
   font-size: 50px;
@@ -51,6 +52,7 @@
 }
 
 #totrm {
+  float: right;
   color: #61ffc6cc;
   font-size: 54px;
 }
@@ -128,7 +130,7 @@ footer {
       </div>
     </div>
     
-    <div class="subject">CSS-3        :<select id="eng"  onchange="result()">
+    <div class="subject">mathematics-V(A)         :<select id="math_a"  onchange="result()">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -136,75 +138,94 @@ footer {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="engm">20</text>
+    </select><text id="matha_m">50</text>
     </div>
     
-<div hidden="true">
     <script>
-     var a,b,c,d,e,f,g,h,i;
-var fs = require('fs');
+     var a,b,c,d,e,f,g,h,i,j;
 
 function parser() {
-  a = document.getElementById("eng").value;
-  b = document.getElementById("san").value;
-  c = document.getElementById("ict").value;
-  d = document.getElementById("css").value;
-  e = document.getElementById("mat").value;
-  f = document.getElementById("phy").value;
-  g = document.getElementById("phypr").value;
-  h = document.getElementById("com").value;
-  i = document.getElementById("compr").value;
+  a = document.querySelector("#math_a").value;
+  b = document.querySelector("#math_b").value;
+  c = document.querySelector("#phy_a").value;
+  d = document.querySelector("#phy_b").value;
+  e = document.querySelector("#com_a").value;
+  f = document.querySelector("#com_b").value;
+  g = document.querySelector("#phyp_a").value;
+  h = document.querySelector("#phyp_b").value;
+  i = document.querySelector("#comp_a").value;
+  j = document.querySelector("#comp_b").value;
+  
+  //console.log(a+","+b+","+c+","+d+","+e+","+f+","+g+","+h+","+i+","+j);
   
 }
 
 function marks() {
-  document.getElementById("engm").innerHTML=a*2;
-  document.getElementById("sanm").innerHTML=b*2;
-  document.getElementById("ictm").innerHTML=c*2;
-  document.getElementById("cssm").innerHTML=d*2;
-  document.getElementById("matm").innerHTML=e*5;
-  document.getElementById("phym").innerHTML=f*3;
-  document.getElementById("phyprm").innerHTML=g*2;
-  document.getElementById("comm").innerHTML=h*3;
-  document.getElementById("comprm").innerHTML=i*2;
+  document.querySelector("#matha_m").innerHTML = (a*5);
+  document.querySelector("#mathb_m").innerHTML = (b*5);
+  document.querySelector("#phya_m").innerHTML = (c*3);
+  document.querySelector("#phyb_m").innerHTML = (d*3);
+  document.querySelector("#coma_m").innerHTML = (e*3);
+  document.querySelector("#comb_m").innerHTML = (f*3);
+  document.querySelector("#phypa_m").innerHTML = (g*2);
+  document.querySelector("#phypb_m").innerHTML = (h*2);
+  document.querySelector("#compa_m").innerHTML = (i*2);
+  document.querySelector("#compb_m").innerHTML = (j*2);
 }
 
 function result() {
   parser();
   marks();
-  var r = (a*2)+(b*2)+(c*2)+(d*2)+(e*5)+(f*3)+(g*2)+(h*3)+(i*2);
-  var ans = r/23;
-  document.getElementById("totrm").innerHTML=r;
-  document.getElementById("fans").innerHTML=ans;
+  var r = (a*5)+(b*5)+(c*3)+(d*3)+(e*3)+(f*3)+(g*2)+(h*2)+(i*2)+(j*2);
+  var ans = r/30;
+  document.getElementById("totrm").innerHTML = r;
+  document.getElementById("fans").innerHTML  = ans.toFixed(2);
 }
 
 function mpcs() {
   document.getElementById("cos").innerHTML="MPCS";
-  document.getElementById("phyt").innerHTML="physics :";
-  document.getElementById("phyprt").innerHTML="physics practical :";
-  document.getElementById("comt").innerHTML="computer :";
-  document.getElementById("comprt").innerHTML="computer practical :";
+  
+  document.querySelector("#second_subject_a").innerHTML = "physics";
+  document.querySelector("#second_subject_b").innerHTML = "physics";
+  document.querySelector("#third_subject_a").innerHTML = "computer";
+  document.querySelector("#third_subject_b").innerHTML = "computer";
+  document.querySelector("#second_subject_prac_a").innerHTML = "physics";
+  document.querySelector("#second_subject_prac_b").innerHTML = "physics";
+  document.querySelector("#third_subject_prac_a").innerHTML = "computer";
+  document.querySelector("#third_subject_prac_b").innerHTML = "computer";
+ 
 }
 
 function mpc() {
   document.getElementById("cos").innerHTML="MPC";
-  document.getElementById("phyt").innerHTML="physics :";
-  document.getElementById("phyprt").innerHTML="physics practical :";
-  document.getElementById("comt").innerHTML="chemistry :";
-  document.getElementById("comprt").innerHTML="chemistry practical :";
+  
+  document.querySelector("#second_subject_a").innerHTML = "physics";
+  document.querySelector("#second_subject_b").innerHTML = "physics";
+  document.querySelector("#third_subject_a").innerHTML = "chemistry";
+  document.querySelector("#third_subject_b").innerHTML = "chemistry";
+  document.querySelector("#second_subject_prac_a").innerHTML = "physics";
+  document.querySelector("#second_subject_prac_b").innerHTML = "physics";
+  document.querySelector("#third_subject_prac_a").innerHTML = "chemistry";
+  document.querySelector("#third_subject_prac_b").innerHTML = "chemistry";
+  
 }
 
 function mscs() {
   document.getElementById("cos").innerHTML="MSCS";
-  document.getElementById("phyt").innerHTML="statistics :";
-  document.getElementById("phyprt").innerHTML="statistics practical :";
-  document.getElementById("comt").innerHTML="computer :";
-  document.getElementById("comprt").innerHTML="computer practical :";
+  
+  document.querySelector("#second_subject_a").innerHTML = "statistics";
+  document.querySelector("#second_subject_b").innerHTML = "statistics";
+  document.querySelector("#third_subject_a").innerHTML = "computer";
+  document.querySelector("#third_subject_b").innerHTML = "computer";
+  document.querySelector("#second_subject_prac_a").innerHTML = "statistics";
+  document.querySelector("#second_subject_prac_b").innerHTML = "statistics";
+  document.querySelector("#third_subject_prac_a").innerHTML = "computer";
+  document.querySelector("#third_subject_prac_b").innerHTML = "computer";
+  
 }
     </script>
-</div>
     
-    <div class="subject">Analytical skills          : <select   onchange="result()" id="san">
+    <div class="subject">mathematics-V(B)         : <select   onchange="result()" id="math_b">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -212,10 +233,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="sanm">20</text>
+    </select><text id="mathb_m">50</text>
     </div>
     
-    <div class="subject">Leadership education          : <select  onchange="result()" id="ict">
+    <div class="subject"><span id="second_subject_a">physics</span>-V(A)        : <select  onchange="result()" id="phy_a">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -223,10 +244,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="ictm">20</text>
+    </select><text id="phya_m">30</text>
     </div>
     
-    <div class="subject">Entrepreneurship           : <select  onchange="result()" id="css">
+	<div class="subject"><span id="second_subject_prac_a">physics</span>-V(A) practical :<select  onchange="result()" id="phyp_a">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -234,10 +255,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="cssm">20</text>
+    </select><text id="phypa_m">20</text>
     </div>
-    
-    <div class="subject">mathematics          : <select  onchange="result()" id="mat">
+	
+    <div class="subject"><span id="second_subject_b">physics</span>-V(B)          : <select  onchange="result()" id="phy_b">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -245,10 +266,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="matm">50</text>
+    </select><text id="phyb_m">30</text>
     </div>
     
-    <div class="subject"><span id="phyt">physics          :</span><select  onchange="result()" id="phy">
+	<div class="subject"><span id="second_subject_prac_b">physics</span>-V(B) practical :<select onchange="result()" id="phyp_b">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -256,10 +277,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="phym">30</text>
+    </select><text id="phypb_m">20</text>
     </div>
-    
-    <div class="subject"><span id="phyprt">physics practical :</span><select  onchange="result()" id="phypr">
+	
+    <div class="subject"><span id="third_subject_a">computer</span>-V(A)         : <select  onchange="result()" id="com_a">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -267,10 +288,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="phyprm">20</text>
+    </select><text id="coma_m">30</text>
     </div>
-    
-    <div class="subject"><span id="comt">computer         :</span><select onchange="result()" id="com">
+	
+	<div class="subject"><span id="third_subject_prac_a">computer</span>-V(A) practical :<select onchange="result()" id="comp_a">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -278,10 +299,10 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="comm">30</text>
+    </select><text id="compa_m">20</text>
     </div>
     
-    <div class="subject"><span id="comprt">computer practical :</span><select onchange="result()" id="compr">
+    <div class="subject"><span id="third_subject_b">computer</span>-V(B)        :<select  onchange="result()" id="com_b">
       <option value=10>O</option>
       <option value=9>A+</option>
       <option value=8>A</option>
@@ -289,13 +310,24 @@ function mscs() {
       <option value=6>B</option>
       <option value=5>C</option>
       <option value=4>D</option>
-    </select><text id="comprm">20</text>
+    </select><text id="comb_m">30</text>
+    </div>
+	
+	<div class="subject"><span id="third_subject_prac_b">computer</span>-V(B) practical :<select onchange="result()" id="comp_b">
+      <option value=10>O</option>
+      <option value=9>A+</option>
+      <option value=8>A</option>
+      <option value=7>B+</option>
+      <option value=6>B</option>
+      <option value=5>C</option>
+      <option value=4>D</option>
+    </select><text id="compb_m">20</text>
     </div>
     
-    <div class="subject">Total marks : <text id="totrm">230</text></div>
+    <div class="subject">Total marks : <text id="totrm">300</text></div>
     
     
-     <p id="fans" onclick="result()">10</p>
+     <p id="fans" onclick="result()">10.00</p>
     
     <footer>krishna tech</footer>
   </body>
